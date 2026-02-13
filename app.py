@@ -1,65 +1,104 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
 
-# Mood recommendations
-recommendations = {
-    "stressed": {
-        "music": "https://www.youtube.com/watch?v=lFcSrYw-ARY",
-        "plan": "Do 2‑minute breathing → 25‑minute focus → 5‑minute break",
-        "tip": "Relax. Take deep breaths and focus on one task."
+# Mood-based responses with music links
+mood_data = {
+    "sad": {
+        "emoji": "😔",
+        "suggestion": "Take things slowly today and focus on small wins.",
+        "tip": "It's okay to feel sad. Be gentle with yourself 💙",
+        "music": {
+            "title": "Soothing Piano & Rain",
+            "link": "https://www.youtube.com/watch?v=2OEL4P1Rz04"
+        },
+        "plan": [
+            "Take a short walk 🌿",
+            "Write your thoughts 📝",
+            "Listen to calming music 🎧"
+        ]
     },
-    "low_energy": {
-        "music": "https://www.youtube.com/watch?v=5qap5aO4i9A",
-        "plan": "Start small task → Listen to music → Continue gradually",
-        "tip": "Drink water and stretch."
+    "stressed": {
+        "emoji": "😰",
+        "suggestion": "Try a 25-minute focus session with deep breathing.",
+        "tip": "Break tasks into small steps. You've got this! 💪",
+        "music": {
+            "title": "Relaxing Nature Sounds",
+            "link": "https://www.youtube.com/watch?v=lFcSrYw-ARY"
+        },
+        "plan": [
+            "2-min breathing exercise 🌬",
+            "25-min Pomodoro ⏱",
+            "5-min break ☕"
+        ]
+    },
+    "low-energy": {
+        "emoji": "😴",
+        "suggestion": "Recharge with rest and hydration.",
+        "tip": "Rest is productive too 🔋",
+        "music": {
+            "title": "Chill Coffee Shop Vibes",
+            "link": "https://www.youtube.com/watch?v=5qap5aO4i9A"
+        },
+        "plan": [
+            "Drink water 💧",
+            "Light stretching 🚶",
+            "Short power nap 💤"
+        ]
+    },
+    "happy": {
+        "emoji": "😊",
+        "suggestion": "Use this positive energy to tackle important tasks!",
+        "tip": "Channel this positivity into meaningful work ✨",
+        "music": {
+            "title": "Feel Good Acoustic",
+            "link": "https://www.youtube.com/watch?v=ZbZSe6N_BXs"
+        },
+        "plan": [
+            "Start your favorite task 🎯",
+            "Set a big goal 🚀",
+            "Celebrate small wins 🎉"
+        ]
     },
     "motivated": {
-        "music": "https://www.youtube.com/watch?v=2Vv-BfVoq4g",
-        "plan": "Start hardest task → Use Pomodoro → Avoid distractions",
-        "tip": "Great energy! Use it wisely."
+        "emoji": "🚀",
+        "suggestion": "Deep work session — no distractions!",
+        "tip": "You're on fire! Keep going 🔥",
+        "music": {
+            "title": "Epic Productivity Beats",
+            "link": "https://www.youtube.com/watch?v=WPni755-Krg"
+        },
+        "plan": [
+            "Hardest task first 💥",
+            "50-min deep work ⏱",
+            "Track progress 📈"
+        ]
     }
 }
 
-def detect_mood(text):
+@app.route("/analyze", methods=["POST"])
+def analyze():
+    data = request.get_json()
 
-    text = text.lower()
+    mood = data.get("mood")
+    text = data.get("text")
 
-    stressed = ["stress", "tired", "sad", "angry", "upset"]
-    motivated = ["happy", "excited", "motivated", "good", "great"]
+    if mood not in mood_data:
+        return jsonify({"error": "Invalid mood"}), 400
 
-    for word in stressed:
-        if word in text:
-            return "stressed"
+    response = {
+        "mood": mood,
+        "text": text,
+        **mood_data[mood]
+    }
 
-    for word in motivated:
-        if word in text:
-            return "motivated"
-
-    return "low_energy"
-
+    return jsonify(response)
 
 @app.route("/")
 def home():
-    return render_template("index.html")
-
-
-@app.route("/analyze", methods=["POST"])
-def analyze():
-
-    data = request.get_json()
-    text = data["text"]
-
-    mood = detect_mood(text)
-    rec = recommendations[mood]
-
-    return jsonify({
-        "mood": mood.capitalize(),
-        "music": rec["music"],
-        "plan": rec["plan"],
-        "tip": rec["tip"]
-    })
-
+    return "Mood Booster Backend Running 🚀"
 
 if __name__ == "__main__":
     app.run(debug=True)

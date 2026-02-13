@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Mood Analysis</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="min-h-screen bg-gradient-to-br from-purple-200 to-pink-200 p-8">
+
+<div class="max-w-4xl mx-auto">
+
+  <a href="index.html" class="text-gray-700 underline">← Back</a>
+
+  <!-- Header -->
+  <div class="text-center mt-6">
+    <div id="emoji" class="text-8xl mb-4"></div>
+    <h1 class="text-4xl font-bold mb-4">
+      You're feeling <span id="moodLabel" class="capitalize"></span>
+    </h1>
+    <p id="tip" class="text-lg text-gray-700 mb-6"></p>
+  </div>
+
+  <!-- MUSIC SECTION -->
+  <div class="bg-white/60 backdrop-blur-lg p-6 rounded-3xl shadow-lg mb-8 text-center">
+    <h2 class="text-2xl font-semibold mb-4">🎵 Music Match</h2>
+    <p id="musicText" class="mb-4 text-gray-700"></p>
+
+    <audio id="audioPlayer" controls class="mx-auto hidden">
+      <source id="audioSource" src="" type="audio/mpeg">
+    </audio>
+
+    <button onclick="playMusic()"
+      class="px-6 py-3 bg-purple-500 text-white rounded-xl hover:bg-purple-600 transition">
+      ▶ Play Music
+    </button>
+  </div>
+
+  <!-- PLAN SECTION -->
+  <div class="bg-white/60 backdrop-blur-lg p-6 rounded-3xl shadow-lg mb-8">
+    <h2 class="text-2xl font-semibold mb-4 text-center">📋 Your Action Plan</h2>
+    <ul id="planList" class="space-y-3 text-lg text-gray-800"></ul>
+  </div>
+
+  <!-- Pomodoro -->
+  <div class="text-center bg-white/60 backdrop-blur-lg p-8 rounded-3xl shadow-lg">
+    <h2 class="text-2xl font-semibold mb-4">Pomodoro Timer ⏳</h2>
+    <div id="timer" class="text-5xl font-bold mb-4">25:00</div>
+    <button onclick="startTimer()" class="px-6 py-3 bg-purple-500 text-white rounded-xl mr-4">
+      Start
+    </button>
+    <button onclick="resetTimer()" class="px-6 py-3 bg-gray-300 rounded-xl">
+      Reset
+    </button>
+  </div>
+
+</div>
+
+<script>
+const mood = localStorage.getItem("selectedMood");
+
+const moodData = {
+  sad: {
+    emoji: "😔",
+    tip: "Be gentle with yourself 💙",
+    music: "Soft Piano & Rain Sounds",
+    musicFile: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+    plan: [
+      "🌿 Take a short walk",
+      "📝 Journal your thoughts",
+      "☕ Have something warm",
+      "🎨 Do something creative"
+    ]
+  },
+  stressed: {
+    emoji: "😰",
+    tip: "Take a deep breath 🌿",
+    music: "Calming Meditation Music",
+    musicFile: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3",
+    plan: [
+      "🌬 Try breathing exercise",
+      "📋 List 3 small tasks",
+      "⏱ Work for 25 minutes",
+      "💧 Drink water"
+    ]
+  },
+  "low-energy": {
+    emoji: "😴",
+    tip: "Recharge and rest 🔋",
+    music: "Gentle Acoustic Music",
+    musicFile: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3",
+    plan: [
+      "💤 Take a power nap",
+      "🚶 Stretch your body",
+      "🍎 Eat a healthy snack",
+      "💧 Stay hydrated"
+    ]
+  },
+  happy: {
+    emoji: "😊",
+    tip: "Channel your energy ✨",
+    music: "Upbeat Feel Good Music",
+    musicFile: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3",
+    plan: [
+      "🎯 Start your favorite task",
+      "🤝 Connect with someone",
+      "✨ Set exciting goals",
+      "🎉 Celebrate small wins"
+    ]
+  },
+  motivated: {
+    emoji: "🚀",
+    tip: "You’re unstoppable 🔥",
+    music: "Focus Productivity Beats",
+    musicFile: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-5.mp3",
+    plan: [
+      "🔥 Tackle hardest task first",
+      "⏱ Deep work session",
+      "📈 Track progress",
+      "🚫 Avoid distractions"
+    ]
+  }
+};
+
+const data = moodData[mood];
+
+document.getElementById("emoji").innerText = data.emoji;
+document.getElementById("moodLabel").innerText = mood;
+document.getElementById("tip").innerText = data.tip;
+document.getElementById("musicText").innerText = data.music;
+
+// Add Plan Items
+const planList = document.getElementById("planList");
+data.plan.forEach(item => {
+  const li = document.createElement("li");
+  li.innerText = item;
+  planList.appendChild(li);
+});
+
+// Music play
+function playMusic() {
+  const audio = document.getElementById("audioPlayer");
+  const source = document.getElementById("audioSource");
+
+  source.src = data.musicFile;
+  audio.load();
+  audio.classList.remove("hidden");
+  audio.play();
+}
+
+// Pomodoro
+let time = 1500;
+let interval;
+
+function startTimer() {
+  interval = setInterval(() => {
+    if (time <= 0) {
+      clearInterval(interval);
+      return;
+    }
+    time--;
+    updateDisplay();
+  }, 1000);
+}
+
+function resetTimer() {
+  clearInterval(interval);
+  time = 1500;
+  updateDisplay();
+}
+
+function updateDisplay() {
+  const minutes = Math.floor(time / 60);
+  const seconds = time % 60;
+  document.getElementById("timer").innerText =
+    String(minutes).padStart(2, '0') + ":" +
+    String(seconds).padStart(2, '0');
+}
+</script>
+
+</body>
+</html>

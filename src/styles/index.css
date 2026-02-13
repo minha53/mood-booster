@@ -1,0 +1,12 @@
+@import './fonts.css';
+@import './tailwind.css';
+@import './theme.css';
+
+* {
+  font-family: var(--font-family);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
