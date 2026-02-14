@@ -86,7 +86,7 @@ npm run dev,python app.py
 ![screenshoot 1](https://github.com/minha53/mood-booster/blob/main/images/Screenshot%202026-02-14%20093321.png)
 *frontpage*
 
-![screenshoot 2](images/Screenshot2026-02-14093352.png)
+![screenshoot 2](https://github.com/minha53/mood-booster/blob/main/images/Screenshot%202026-02-14%20093352.png)
 *music and mood*
 
 ![screenshoot 3](images/Screenshot2026-02-14093413.png)
