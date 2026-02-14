@@ -1,7 +1,3 @@
-![workflow](https://github.com/user-attachments/assets/c0321663-3764-4bc1-b666-4cc0e34287cd)<p align="center">
-  <img src="./img.png" alt="Project Banner" width="100%">
-</p>
-
 # Mood Booster 🎯
 
 ## Basic Details
@@ -100,6 +96,11 @@ image/architecture.jpeg
 *This diagram shows how your Mood-Based Productivity App works step by step. First, the user opens the website and enters how they feel (for example, “I feel tired”). When the user clicks the “Analyze Mood” button, the frontend (React) sends this text to the Flask backend using a POST request to the /analyze API. The backend then processes the text, detects the mood (such as stressed, low energy, or motivated), and selects appropriate responses like a music link, a productivity plan, and a motivational tip. It sends this data back to the frontend in JSON format. The frontend then displays the detected mood, plan, tip, and music option to the user. If the user clicks “Start Timer,” the Pomodoro timer begins (usually 25 minutes). After the timer finishes, the session is complete.*
 
 **Application Workflow:**
+
+![workflow](https://github.com/user-attachments/assets/c0321663-3764-4bc1-b666-4cc0e34287cd)<p align="center">
+  <img src="./img.png" alt="Project Banner" width="100%">
+</p>
+
 
 image/workflow.jpeg
 *The diagram shows how your Mood-Based Productivity App works step by step. First, the user opens the website and enters how they feel (for example, “I feel tired”). When the user clicks the “Analyze Mood” button, the frontend (React) sends this text to the Flask backend using a POST request to the /analyze API. The backend then processes the text, detects the mood (such as stressed, low energy, or motivated), and selects appropriate responses like a music link, a productivity plan, and a motivational tip. It sends this data back to the frontend in JSON format. The frontend then displays the detected mood, plan, tip, and music option to the user. If the user clicks “Start Timer,” the Pomodoro timer begins (usually 25 minutes). After the timer finishes, the session is complete.*
