@@ -89,7 +89,7 @@ npm run dev,python app.py
 ![screenshoot 2](https://github.com/minha53/mood-booster/blob/main/images/Screenshot%202026-02-14%20093352.png)
 *music and mood*
 
-![screenshoot 3](images/Screenshot2026-02-14093413.png)
+![screenshoot 3](https://github.com/minha53/mood-booster/blob/main/images/Screenshot%202026-02-14%20093413.png)
 *action plan and pomodoro timer*
 
 #### Diagrams
