@@ -83,21 +83,21 @@ npm run dev,python app.py
 
 #### Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-*Add caption explaining what this shows*
+image/Screenshot 2026-02-14 093321.png
+*frontpage*
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
+image/Screenshot 2026-02-14 093352.png
+*music and mood*
 
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
+image/Screenshot 2026-02-14 093413.png
+*action plan and pomodoro timer*
 
 #### Diagrams
 
 **System Architecture:**
 
-![Architecture Diagram](docs/architecture.png)
-*Explain your system architecture - components, data flow, tech stack interaction*
+image/architecture.jpeg
+*This diagram shows how your Mood-Based Productivity App works step by step. First, the user opens the website and enters how they feel (for example, “I feel tired”). When the user clicks the “Analyze Mood” button, the frontend (React) sends this text to the Flask backend using a POST request to the /analyze API. The backend then processes the text, detects the mood (such as stressed, low energy, or motivated), and selects appropriate responses like a music link, a productivity plan, and a motivational tip. It sends this data back to the frontend in JSON format. The frontend then displays the detected mood, plan, tip, and music option to the user. If the user clicks “Start Timer,” the Pomodoro timer begins (usually 25 minutes). After the timer finishes, the session is complete.*
 
 **Application Workflow:**
 
