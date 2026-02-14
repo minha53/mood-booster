@@ -83,13 +83,13 @@ npm run dev,python app.py
 
 #### Screenshots (Add at least 3)
 
-image/Screenshot 2026-02-14 093321.png
+![screenshoot1](images/Screenshot 2026-02-14 093321.png)
 *frontpage*
 
-image/Screenshot 2026-02-14 093352.png
+![screenshoot2](images/Screenshot 2026-02-14 093352.png)
 *music and mood*
 
-image/Screenshot 2026-02-14 093413.png
+![screenshoot3](images/Screenshot 2026-02-14 093413.png)
 *action plan and pomodoro timer*
 
 #### Diagrams
