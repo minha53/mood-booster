@@ -83,7 +83,7 @@ npm run dev,python app.py
 
 #### Screenshots (Add at least 3)
 
-![screenshoot 1](images/Screenshot2026-02-14093321.png)
+![screenshoot 1](https://github.com/minha53/mood-booster/blob/main/images/Screenshot%202026-02-14%20093321.png)
 *frontpage*
 
 ![screenshoot 2](images/Screenshot2026-02-14093352.png)
