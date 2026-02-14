@@ -23,18 +23,36 @@
 
   <!-- MUSIC SECTION -->
   <div class="bg-white/60 backdrop-blur-lg p-6 rounded-3xl shadow-lg mb-8 text-center">
-    <h2 class="text-2xl font-semibold mb-4">🎵 Music Match</h2>
-    <p id="musicText" class="mb-4 text-gray-700"></p>
+  <h2 class="text-2xl font-semibold mb-4">🎵 Music Match</h2>
 
-    <audio id="audioPlayer" controls class="mx-auto hidden">
-      <source id="audioSource" src="" type="audio/mpeg">
-    </audio>
+  <!-- Song Title -->
+  <p id="musicText" class="mb-4 text-gray-700 font-medium"></p>
 
+  <!-- Audio Player -->
+  <audio id="audioPlayer" controls class="mx-auto hidden">
+    <source id="audioSource" src="" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Controls -->
+  <div class="flex justify-center gap-4 mt-4">
     <button onclick="playMusic()"
       class="px-6 py-3 bg-purple-500 text-white rounded-xl hover:bg-purple-600 transition">
-      ▶ Play Music
+      ▶ Play
+    </button>
+
+    <button onclick="nextSong()"
+      class="px-6 py-3 bg-blue-500 text-white rounded-xl hover:bg-blue-600 transition">
+      ⏭ Next
+    </button>
+
+    <button onclick="shufflePlaylist()"
+      class="px-6 py-3 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
+      🔀 Shuffle
     </button>
   </div>
+</div>
+
 
   <!-- PLAN SECTION -->
   <div class="bg-white/60 backdrop-blur-lg p-6 rounded-3xl shadow-lg mb-8">

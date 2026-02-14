@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
+import random
 
 app = Flask(__name__)
 CORS(app)
@@ -10,10 +11,20 @@ mood_data = {
         "emoji": "😔",
         "suggestion": "Take things slowly today and focus on small wins.",
         "tip": "It's okay to feel sad. Be gentle with yourself 💙",
-        "music": {
-            "title": "Soothing Piano & Rain",
-            "link": "https://www.youtube.com/watch?v=2OEL4P1Rz04"
+        "music": [
+        {
+            "title": "Soothing Piano",
+            "link": "https://www.youtube.com/embed/2OEL4P1Rz04"
         },
+        {
+            "title": "Peaceful Meditation",
+            "link": "https://www.youtube.com/embed/inpok4MKVLM"
+        },
+        {
+            "title": "Soft Guitar",
+            "link": "https://www.youtube.com/embed/4Tr0otuiQuU"
+        }
+    ],
         "plan": [
             "Take a short walk 🌿",
             "Write your thoughts 📝",
@@ -102,3 +113,4 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
+
