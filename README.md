@@ -2,27 +2,27 @@
   <img src="./img.png" alt="Project Banner" width="100%">
 </p>
 
-# [Project Name] 🎯
+# Mood Booster 🎯
 
 ## Basic Details
 
-### Team Name: [Name]
+### Team Name: Spectra
 
 ### Team Members
-- Member 1: [Name] - [College]
-- Member 2: [Name] - [College]
+- Member 1: Minha U - NSS COLLEGE OF ENGINEERING PALAKKAD
+- Member 2: Sithara Rajendran -  NSS COLLEGE OF ENGINEERING PALAKKAD
 
 ### Hosted Project Link
 [mention your project hosted link here]
 
 ### Project Description
-[2-3 lines about what your project does]
+The project is a Mood-Based Productivity and Wellness Web Application that analyzes a user’s emotional state based on their input and provides personalized productivity plans, motivational tips, mood-based music recommendations, and a built-in Pomodoro timer to improve focus and well-being.
 
 ### The Problem statement
-[What problem are you solving?]
+In today’s academic and professional environments, productivity is significantly influenced by an individual’s emotional state. Stress, low motivation, and mental fatigue often reduce focus and efficiency, while most existing productivity tools fail to consider the user’s mood.
 
 ### The Solution
-[How are you solving it?]
+The project aims to develop a Mood‑Based Productivity Booster that analyzes the user’s emotional state and provides personalized recommendations, motivational support, and a Pomodoro timer to enhance focus, productivity, and overall well‑being through an interactive and user‑friendly interface.
 
 ---
 
@@ -31,8 +31,8 @@
 ### Technologies/Components Used
 
 **For Software:**
-- Languages used: [e.g., JavaScript, Python, Java]
-- Frameworks used: [e.g., React, Django, Spring Boot]
+- Languages used: html, CSS , JavaScript, Python
+- Frameworks used:  React
 - Libraries used: [e.g., axios, pandas, JUnit]
 - Tools used: [e.g., VS Code, Git, Docker]
 
@@ -59,12 +59,12 @@ List the key features of your project:
 
 #### Installation
 ```bash
-[Installation commands - e.g., npm install, pip install -r requirements.txt]
+Installation commands -  npm install, pip install -r requirements.txt
 ```
 
 #### Run
 ```bash
-[Run commands - e.g., npm start, python app.py]
+npm run dev,python app.py
 ```
 
 ### For Hardware:
